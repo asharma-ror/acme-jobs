@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     resource :jobs, only: [:new, :create]
   end
 
-  resources :jobs, only: [:show, :index]
+  resources :jobs, only: [:show, :index] do
+    member do
+      get 'apply'
+      post 'save_candidate'
+    end
+  end
 
   root 'jobs#index'
 end
