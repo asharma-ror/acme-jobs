@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get 'apply'
       post 'save_candidate'
+      get 'candidates'
     end
   end
 
