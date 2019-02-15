@@ -1,7 +1,9 @@
 <%= link_to 'Show Jobs', jobs_path %>
 
 <div>
- <h1><%= @job.title %></h1>
- <div><%= @job.description %></div>
- <div><%= @job.closing_date %></div>
+  <h1><%= @job.title %></h1>
+  <div><%= @job.description %></div>
+  <small>
+    Closing Date: <%= @job.closing_date.strftime("%d %B %Y") %>
+  </small>  
 </div>

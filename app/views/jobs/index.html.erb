@@ -1,25 +1,33 @@
-<%= link_to 'Create Job', new_admin_jobs_path, class: 'text-right' %>
-<h1> Jobs </h1>
 
-
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Closing Date</th>
-    <th>Action </th>
-    <th> </th>
-    <th> </th>
-  </tr>
-
-  <% @jobs.each do |job| %>
+  <div class="text-right">
+    <%= link_to 'Create Job', new_admin_jobs_path, class: 'btn btn-primary' %>
+  </div>
+  <h1> Jobs </h1>
+  <% if @jobs.present? %>
+     <% @jobs.each do |job| %>
+              
+        <div class="job-row border">
+          <h3><%= link_to job.title, job_path(job) %></h3>
+          <div>
+            <%= job.description %>
+          </div>  
+          <small>
+            Closing Date: <%= job.closing_date.strftime("%d %B %Y") %>
+          </small>
+          <div class="text-right">
+            
+            <%= link_to 'Apply', apply_job_path(job) %>
+          </div>
+        </div>
+         <br/>
+     <% end %>
+  <% else %>
     <tr>
-      <td><%= job.title %></td>
-      <td><%= job.description %></td>
-      <td><%= job.closing_date.strftime("%b %d, %Y") %></td>
-      <td><%= link_to 'Show', job_path(job) %></td>
-      <td><%= link_to 'Apply', apply_job_path(job) %></td>
+      <td colspan="5">Currrently there's no record to display.</td>
     </tr>
-  <% end %>
-</table>
+  <% end %>  
+
+ 
+<div>
+  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+</div>

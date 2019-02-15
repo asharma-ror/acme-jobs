@@ -9,7 +9,9 @@ module Admin
 
       if @job.save
         redirect_to job_path(@job.id)
+        flash[:success] = "Your job has been created successfully."
       else
+        flash[:error] = @job.errors.full_messages.join("<br>").html_safe
         render 'new'
       end
     end
