@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Prerequisite
 
-Things you may want to cover:
-
-* Ruby version
-
+* Ruby version: v2.4.1
 * System dependencies
+MySql
+
+##Setup and run process
+
+###Get clone the repo: https://github.com/asharma-ror/acme-jobs.git
 
 * Configuration
+- Update config/database.yml
+- Update config/trello.rb
+- Set env variables `SIDEKIQ_USERNAME` and `SIDEKIQ_PASSWORD`
 
-* Database creation
+###Command to run before start
+- `bundle install`
+- `rake db:create db:migrate`
 
-* Database initialization
+###Commands to Run application
+- `rails s`
+- `bundle exec sidekiq`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
