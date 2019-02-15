@@ -1,5 +1,5 @@
 
-<%= form_with scope: :candidate, url: save_candidate_job_path, local: true do |form| %>
+<%= form_with scope: :candidate, url: job_applicants_path, local: true do |form| %>
 
   <% if @candidate.errors.any? %>
     <div id="error_explanation">

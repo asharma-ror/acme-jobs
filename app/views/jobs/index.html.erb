@@ -16,9 +16,9 @@
           </small>
           <div class="text-right">
             <span class="candidate-link">
-              <%= link_to 'Candidate List', candidates_job_path(job) %>
+              <%= link_to 'Applicant List', job_applicants_path(job) %>
             </span>
-            <%= link_to 'Apply', apply_job_path(job) %>
+            <%= link_to 'Apply', new_job_applicant_path(job) %>
           </div>
         </div>
          <br/>

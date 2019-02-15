@@ -1,5 +1,5 @@
 <%= link_to 'Show Jobs', jobs_path %>
-<h1> Candidate for <%= @job.title.capitalize %> </h1>
+<h1> Applicants for <%= @job.title %> </h1>
 
 <% if @candidates.present? %>
   <table class="table table-striped">
@@ -18,14 +18,12 @@
       <% end %>
     </tbody>
   </table>
-<% else %>
-  <tr>
-    <td colspan="5">Currrently there's no record to display.</td>
-  </tr>
-<% end %>
 
-<div>
-  <%= will_paginate @candidates, renderer: BootstrapPagination::Rails %>
-</div>
+  <div>
+    <%= will_paginate @candidates, renderer: BootstrapPagination::Rails %>
+  </div>
+<% else %>
+  <span colspan="5">Currrently there's no record to display.</span>
+<% end %>
 
 
